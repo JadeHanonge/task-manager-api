@@ -31,7 +31,19 @@ const addTask = (req, res) => {
 //fonction pour supprimer une tâche
 
 //fonction pour récuperer une tâche par son ID
+const getTaskById = (req, res) => {
+    const { id } = req.params;
+    db.query('SELECT * FROM task WHERE id = ?', [id], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: 'Database query error' });
+        }
+        if (results.length === 0) {
+            return res.status(404).json({ error: 'Task not found' });
+        }
+        res.json(results[0]);
+    });
+};
 
 module.exports = {
-    getAllTasks, addTask
+    getAllTasks, addTask, getTaskById
 };
