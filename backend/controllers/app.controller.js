@@ -27,6 +27,24 @@ const addTask = (req, res) => {
 }
 
 //fonction pour modifier une tâche
+const updateTask = (req, res) => {
+    const { id } = req.params;
+    const { title, description, comments, status_id } = req.body;
+    db.query('UPDATE task SET title = ?, description = ?, comments = ?, status_id = ? WHERE id = ?', [title, description, comments, status_id, id], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: 'Database update error 1' });
+        }
+        if (status_id == 3) {
+            const completionDate = new Date();
+            db.query('UPDATE task SET closed_date = ? WHERE id = ?', [completionDate, id], (err) => {
+                if (err) {
+                    return res.status(500).json({ error: 'Database update error 2' });
+                }
+            });
+        }
+        res.json({ message: 'Task updated successfully' });
+    });
+};
 
 //fonction pour supprimer une tâche
 
@@ -45,5 +63,5 @@ const getTaskById = (req, res) => {
 };
 
 module.exports = {
-    getAllTasks, addTask, getTaskById
+    getAllTasks, addTask, getTaskById, updateTask
 };
