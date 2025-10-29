@@ -10,14 +10,28 @@ const getAllTasks = (req, res) => {
     });
 };
 
-module.exports = {
-    getAllTasks,
-};
+
 
 //fonction pour ajouter une tâche
+const addTask = (req, res) => {
+    const { title, description, comments, status_id } = req.body;
+    db.query('INSERT INTO task (title, description, comments, status_id) VALUES (?, ?, ?, ?)', [title, description, comments, status_id], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: 'Database insert error' });
+        }
+        if (!title || !status_id) {
+            return res.status(400).json({ error: 'Title and Status ID are required' });
+        }
+        res.status(201).json({ id: results.insertId, title, description, comments, status_id });
+    });
+}
 
 //fonction pour modifier une tâche
 
 //fonction pour supprimer une tâche
 
 //fonction pour récuperer une tâche par son ID
+
+module.exports = {
+    getAllTasks, addTask
+};

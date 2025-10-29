@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 
 //utiliser les routes définies dans routes.js
+app.use(express.json());
 app.use('/api', projectsRoutes);
 
 //Lancer le serveur
