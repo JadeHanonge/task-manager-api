@@ -47,6 +47,15 @@ const updateTask = (req, res) => {
 };
 
 //fonction pour supprimer une tâche
+const deleteTask = (req, res) => {
+    const { id } = req.params;
+    db.query('DELETE FROM task WHERE id = ?', [id], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: 'Database delete error' });
+        }
+        res.json({ message: 'Task deleted successfully' });
+    });
+};
 
 //fonction pour récuperer une tâche par son ID
 const getTaskById = (req, res) => {
@@ -63,5 +72,5 @@ const getTaskById = (req, res) => {
 };
 
 module.exports = {
-    getAllTasks, addTask, getTaskById, updateTask
+    getAllTasks, addTask, getTaskById, updateTask, deleteTask
 };
