@@ -3,7 +3,7 @@
 # Task Manager API 🗂️
 
 
-Une API RESTful simple de gestion de tâches, construite avec **Node.js**, **Express**, et **MySQL**.
+Une API RESTful simple de gestion de tâches, construite avec **Node.js**, **Express**, et **MySQL**.  
 Elle permet de **créer**, **lire**, **mettre à jour et supprimer** des tâches, tout en suivant leur statut (non commencée, en cours, terminée).
 
 ## Fonctionnalités principales 🚀
@@ -26,7 +26,7 @@ Elle permet de **créer**, **lire**, **mettre à jour et supprimer** des tâches
 
 #### 1️⃣ Cloner le Projet
 
-`git clone https://github.com/JadeHanonge/task-manager-api.git`
+`git clone https://github.com/JadeHanonge/task-manager-api.git`  
 `cd task-manager-api`
 
 #### 2️⃣ Installer les dépendances
