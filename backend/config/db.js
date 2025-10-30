@@ -1,5 +1,5 @@
 const e = require('express');
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 require('dotenv').config();
 
 //configuration de la connexion à la base de donées
