@@ -35,11 +35,11 @@ Elle permet de **créer**, **lire**, **mettre à jour et supprimer** des tâches
 
 #### 3️⃣ Configurer les variables d'environement
 
-`DB_HOST = localhost`
-`DB_USER= user`
-`DB_PASSWORD= mot_de_passe`
-`DB_NAME= task_manager`
-`PORT= 3000`
+`DB_HOST = localhost`  
+`DB_USER= user`  
+`DB_PASSWORD= mot_de_passe`  
+`DB_NAME= task_manager`  
+`PORT= 3000`  
 
 #### 4️⃣ Configurer la base de données MySQL
 
@@ -89,7 +89,7 @@ CREATE TABLE task (
 ## Exemple de test avec Postman 🧪
 
 #### ➕ Créer une tâche 
-**POST** http://localhost:5000/api/addTask
+**POST** http://localhost:5000/api/addTask  
 **Body (JSON) :**
 
 ```json
@@ -102,7 +102,7 @@ CREATE TABLE task (
 ```
 
 #### 🔄 Mettre à jours une tâche
-**PUT** http://localhost:5000/api/updateTasks/7
+**PUT** http://localhost:5000/api/updateTasks/7  
 **Body (JSON) :**
 
 ```json
